@@ -1,5 +1,19 @@
-body {
-  background-color: blue;
-  font-size: 15px;
-  padding-top: 20px;
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+#gridElement {
+  width: 100px;
+  height: 100px;
+  background-color: rgb(173, 173, 173);
+  border: 1px solid white;
+}
+
+#board {
+  width: 100vw;
+  height: 100vw;
+  display: grid;
+  grid-template-columns: repeat(3,auto);
+  justify-content: center;
+  align-content: center;
 }
