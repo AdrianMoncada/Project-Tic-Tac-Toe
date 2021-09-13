@@ -9,6 +9,7 @@
 console.log(board)  
 
  const currentPlayer = 'X'
+ console.log(currentPlayer)
  let isGameActive = true;
 
   // ADDING EVENT TO THE TILES
@@ -22,7 +23,7 @@ console.log(board)
       tile.innerText = currentPlayer;
       tile.classList.add(`player${currentPlayer}`);
       updateBoard(index);
-
+      swipeTurn(currentPlayer);
     }
   }
 
@@ -39,12 +40,10 @@ const updateBoard =  (index) => {
   console.log(board)
 }
 
+const changePlayer = () => {
   
-  
-  
-  
-
-
+}
+      
 
   // const gameFlow = {
   //   createPlayer: (name, icon) =>{
