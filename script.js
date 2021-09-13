@@ -8,7 +8,7 @@
                   '','','']
 console.log(board)  
 
- const currentPlayer = 'X'
+ let currentPlayer = 'X'
  console.log(currentPlayer)
  let isGameActive = true;
 
@@ -23,7 +23,8 @@ console.log(board)
       tile.innerText = currentPlayer;
       tile.classList.add(`player${currentPlayer}`);
       updateBoard(index);
-      swipeTurn(currentPlayer);
+      changePlayer();
+      console.log(currentPlayer)
     }
   }
 
@@ -41,7 +42,11 @@ const updateBoard =  (index) => {
 }
 
 const changePlayer = () => {
-  
+ if (currentPlayer === 'X') {
+  currentPlayer = 'O'
+ } else {
+  currentPlayer = 'X'
+ }
 }
       
 
