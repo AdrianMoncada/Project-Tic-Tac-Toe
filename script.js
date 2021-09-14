@@ -2,6 +2,10 @@
   // CACHE DOM
   const tiles = Array.from(document.querySelectorAll('.tile'));
   const reset = document.getElementById('reset')
+  const display = document.querySelector(".display")
+  const displayPlayerName = document.querySelector(".display-player")
+  console.log(displayPlayerName)
+
   
   // SETTING THE BOARD, PLAYERS, GAME STATE AND WINNING CONDITIONS
  let board = ['', '', '', '', '', '', '', '', ''];
@@ -31,6 +35,7 @@
       updateBoard(index);
       handleResultValidation()
       changePlayer();
+      displayPlayer();
     }
   }
 
@@ -65,13 +70,13 @@ function handleResultValidation() {
       }
       if (a === b && b === c) {
           roundWon = true;
-          console.log("there's a winner!")
           break;
       }
   }
 
   if(roundWon) {
-    currentPlayer === 'X'? console.log("Player X wins!"): console.log("Player O wins!");
+    currentPlayer === 'X'? displayWinner('X'): displayWinner('Y')
+    isGameActive = false
   }
 
   if (!board.includes(''))
@@ -94,6 +99,14 @@ function resetGame() {
   })
 }
 
+function displayWinner(player) {
+  console.log("The winner is " + player)
+  display.innerText = player + " wins"
+}
+
+function displayPlayer() {
+  displayPlayerName.innerText = currentPlayer
+}
 
 
 })();
