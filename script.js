@@ -4,7 +4,8 @@
   
   // SETTING THE BOARD
   let board = ['', '', '', '', '', '', '', '', ''];
-
+  console.log(board)
+  
 
  let currentPlayer = 'X'
  let isGameActive = true;
@@ -71,7 +72,11 @@ function handleResultValidation() {
           console.log("there's a winner!")
           break;
       }
-  }};
+  }
+  if (!board.includes(''))
+  console.log("It's a tie!");
+};
+
 
 
 })();
