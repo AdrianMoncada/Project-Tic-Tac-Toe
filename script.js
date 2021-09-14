@@ -1,12 +1,10 @@
 (function  () {
   // CACHE DOM
   const tiles = Array.from(document.querySelectorAll('.tile'));
+  const reset = document.getElementById('reset')
   
-  // SETTING THE BOARD
-  let board = ['', '', '', '', '', '', '', '', ''];
-  console.log(board)
-  
-
+  // SETTING THE BOARD, PLAYERS, GAME STATE AND WINNING CONDITIONS
+ let board = ['', '', '', '', '', '', '', '', ''];
  let currentPlayer = 'X'
  let isGameActive = true;
  const winningConditions =[
@@ -19,8 +17,8 @@
   [0, 4, 8],
   [2, 4, 6]
 ];
-
-  // ADDING EVENT TO THE TILES
+  // ADDING EVENT TO THE TILES & BUTTONS
+  reset.addEventListener('click', () => resetGame())
   tiles.forEach( (tile, index) => {
     tile.addEventListener('click', () => userAction(tile, index));
 });
@@ -33,11 +31,10 @@
       updateBoard(index);
       handleResultValidation()
       changePlayer();
-      console.log(currentPlayer)
     }
   }
 
-  // Checking if tiles are occupy or not
+  // CHEKING IF TILES ARE OCCUPY OR NOT
   const isValidAction = (tile) => {
     if (tile.innerText === 'X' || tile.innerText === 'O'){
         return false;
@@ -49,7 +46,6 @@
   // UPDATING THE STRING BOARD WITH THE CORRESPONDENT CURRENT PLAYER
 const updateBoard =  (index) => {
   board[index] = currentPlayer;
-  console.log(board)
 }
 
   // CHANGING PLAYERS
@@ -81,6 +77,22 @@ function handleResultValidation() {
   if (!board.includes(''))
   console.log("It's a tie!");
 };
+
+
+function resetGame() {
+  board = ['', '', '', '', '', '', '', '', '']
+  isGameActive = true;
+  // announcer.classList.add('hide');
+  if(currentPlayer = 'O') {
+    currentPlayer = 'X'
+  }
+
+  tiles.forEach( tile => {
+    tile.innerText = ''
+    tile.classList.remove('playerX')
+    tile.classList.remove('playerO')
+  })
+}
 
 
 
