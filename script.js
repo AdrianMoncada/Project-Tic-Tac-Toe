@@ -73,6 +73,11 @@ function handleResultValidation() {
           break;
       }
   }
+
+  if(roundWon) {
+    currentPlayer === 'X'? console.log("Player X wins!"): console.log("Player O wins!");
+  }
+
   if (!board.includes(''))
   console.log("It's a tie!");
 };
