@@ -4,7 +4,7 @@
   const reset = document.getElementById('reset')
   const display = document.querySelector(".display")
   const displayPlayerName = document.querySelector(".display-player")
-  console.log(displayPlayerName)
+  const winnerDisplay = document.getElementById("winnerDisplay")
 
   
   // SETTING THE BOARD, PLAYERS, GAME STATE AND WINNING CONDITIONS
@@ -96,16 +96,26 @@ function resetGame() {
     tile.innerText = ''
     tile.classList.remove('playerX')
     tile.classList.remove('playerO')
+
+  displayPlayerName.innerText = currentPlayer
+  winnerDisplay.style.display = 'none'
   })
 }
 
-function displayWinner(player) {
-  console.log("The winner is " + player)
-  display.innerText = player + " wins"
+function displayWinner() {
+  winnerDisplay.style.display = 'block'
+  winnerDisplay.innerText = currentPlayer + " wins!"
+
+  if (currentPlayer === 'X') {
+    winnerDisplay.style.color = '#28d3dd'
+  } else {
+    winnerDisplay.style.color = '#fbcf28'
+  }
 }
 
 function displayPlayer() {
   displayPlayerName.innerText = currentPlayer
+
 }
 
 
